@@ -6,6 +6,11 @@ MainWidget::MainWidget(QWidget *parent)
     , ui(new Ui::MainWidget)
 {
     ui->setupUi(this);
+    init_main();
+}
+
+void MainWidget::init_main()
+{
 }
 
 MainWidget::~MainWidget()
