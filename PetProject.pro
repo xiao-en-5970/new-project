@@ -10,11 +10,12 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    mainwidget.cpp
+    mainwidget.cpp \
+    setting.cpp
 
 HEADERS += \
-    Setting.h \
-    mainwidget.h
+    mainwidget.h \
+    setting.h
 
 FORMS += \
     mainwidget.ui

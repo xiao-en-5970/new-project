@@ -1,6 +1,7 @@
 #include "mainwidget.h"
 #include "ui_mainwidget.h"
 
+
 MainWidget::MainWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::MainWidget)
@@ -11,6 +12,7 @@ MainWidget::MainWidget(QWidget *parent)
 
 void MainWidget::init_main()
 {
+    this->resize(mainwidget_width,mainwidget_height);
 }
 
 MainWidget::~MainWidget()
