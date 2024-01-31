@@ -5,3 +5,7 @@ Image::Image(QObject *parent)
 {
 
 }
+Image::Image(int num,QString address)
+{
+    QPixmap
+}
