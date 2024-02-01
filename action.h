@@ -13,7 +13,7 @@ public:
     //重写构造函数(数量,地址数组）
     Action(int num,QString *addresses);
     //播放动作
-    virtual void playing();
+    void playing();
     //图片序列
     QPixmap *pics = nullptr;
 

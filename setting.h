@@ -9,7 +9,7 @@ class Setting : public QObject
 public:
     explicit Setting(QObject *parent = nullptr);
     //桌宠宽
-    int mainwidget_width = 200;
+    int mainwidget_width = 300;
     //桌宠高
     int mainwidget_height = 300;
     //动作数量上限
