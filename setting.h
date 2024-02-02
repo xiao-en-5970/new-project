@@ -14,6 +14,12 @@ public:
     int mainwidget_height = 300;
     //动作数量上限
     int img_num_max = 20;
+    //logo路径
+    QString logo = QString(":/image/logo/logo1.png");
+    //托盘图标的title
+    QString sti_title = QString("标题");
+    //托盘图标的text
+    QString sti_text = QString("文字");
 signals:
 
 };

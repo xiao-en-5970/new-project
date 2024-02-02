@@ -12,12 +12,14 @@ SOURCES += \
     action.cpp \
     main.cpp \
     mainwidget.cpp \
-    setting.cpp
+    setting.cpp \
+    systemtray.cpp
 
 HEADERS += \
     action.h \
     mainwidget.h \
-    setting.h
+    setting.h \
+    systemtray.h
 
 FORMS += \
     mainwidget.ui
@@ -29,4 +31,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     lifted.qrc \
+    logo.qrc \
     stand.qrc

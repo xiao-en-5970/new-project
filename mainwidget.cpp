@@ -10,21 +10,26 @@ MainWidget::MainWidget(QWidget *parent)
     init_var();
     init_widget();
     init_label();
+    init_sti();
 }
 
 void MainWidget::init_var()
 {
     this->setting = new Setting;
+    this->logo_icon = QIcon(QPixmap(this->setting->logo));
 }
 
 void MainWidget::init_widget()
 {
-
+    //调整宽高
     this->resize(setting->mainwidget_width,setting->mainwidget_height);
+    //调整无边框和透明以及始终前置
     this->setWindowFlags(Qt::FramelessWindowHint | windowFlags());
     this->setWindowFlags(this->windowFlags() | Qt::WindowStaysOnTopHint);
     setAutoFillBackground(true);
     setAttribute(Qt::WA_TranslucentBackground, true);
+    //设置logo
+    this->setWindowIcon(this->logo_icon);
 }
 void MainWidget::del_var()
 {
@@ -37,6 +42,11 @@ void MainWidget::del_var()
     {
         delete this->cur_label;
         this->cur_label = nullptr;
+    }
+    if (this->sti != nullptr)
+    {
+        delete this->sti;
+        this->sti = nullptr;
     }
 }
 MainWidget::~MainWidget()
@@ -54,13 +64,18 @@ void MainWidget::mousePressEvent(QMouseEvent *event)
     }
 }
 
+void MainWidget::init_sti()
+{
+    this->sti = new SystemTray(this->logo_icon,this->setting->sti_title,this->setting->sti_text,this);
+
+}
 
 void MainWidget::mouseMoveEvent(QMouseEvent *event)
 {
     if (m_bPressed)
     {
-        move(event->pos() - m_point + pos());
-        this->set_pix(QString(":/image/lifted/lifted0.png"));
+        move(event->pos() - m_point + pos()+QPoint(-70,60));
+        this->set_pix(QString(":/image/lifted/lifted0.png"));//临时
     }
 
 }
@@ -69,7 +84,7 @@ void MainWidget::mouseReleaseEvent(QMouseEvent *event)
 {
     Q_UNUSED(event);
     m_bPressed = false;
-    this->set_pix(QString(":/image/stand/stand0.png"));
+    this->set_pix(QString(":/image/stand/stand0.png"));//临时
 }
 
 void MainWidget::init_label()
@@ -78,7 +93,7 @@ void MainWidget::init_label()
     this->cur_label->setParent(this);
     this->cur_label->move(this->pos());
     this->cur_label->resize(this->size());
-    this->set_pix(QString(":/image/stand/stand0.png"));
+    this->set_pix(QString(":/image/stand/stand0.png"));//临时
 }
 
 void MainWidget::set_pix(QString adr)

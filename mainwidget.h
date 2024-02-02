@@ -7,6 +7,10 @@
 #include <QMouseEvent>
 #include <QPalette>
 #include <QColor>
+#include <QSystemTrayIcon>
+#include <QIcon>
+#include <QPixmap>
+#include "systemtray.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWidget; }
 QT_END_NAMESPACE
@@ -37,17 +41,23 @@ private:
     void mouseReleaseEvent(QMouseEvent *event);
     //设置图片
     void set_pix(QString);
+    //初始化托盘图标
+    void init_sti();
 //私有变量
     //setting属性
     Setting * setting = nullptr;
     //显示当前图片
     QLabel * cur_label = nullptr;
+    //托盘图标
+    SystemTray * sti = nullptr;
     //记录鼠标是否被按下
     bool m_bPressed = false;
     //记录鼠标位置
     QPoint m_point;
-    //pix图片属性
+    //当前pix图片属性
     QPixmap cur_pix;
+    //logo图片加载
+    QIcon logo_icon;
     //UI
     Ui::MainWidget *ui;
 };
