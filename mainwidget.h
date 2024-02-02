@@ -12,7 +12,6 @@
 #include <QPixmap>
 #include "systemtray.h"
 #include <QRect>
-#include <parentwidget.h>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWidget; }
 QT_END_NAMESPACE
@@ -62,8 +61,6 @@ private:
     QPixmap cur_pix;
     //logo图片加载
     QIcon logo_icon;
-    //设置一个父窗口
-    ParentWidget * p_wig = nullptr;
     //UI
     Ui::MainWidget *ui;
 };
