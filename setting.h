@@ -17,9 +17,12 @@ public:
     //logo路径
     QString logo = QString(":/image/logo/logo1.png");
     //托盘图标的title
-    QString sti_title = QString("标题");
+    QString sti_title = QString("牢大");
     //托盘图标的text
-    QString sti_text = QString("文字");
+    QString sti_text = QString("是的，孩子们，我回来了");
+    //托盘菜单窗口大小
+    int menuwig_width = 100;
+    int menuwig_height = 100;
 signals:
 
 };

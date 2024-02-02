@@ -1,18 +1,29 @@
 #ifndef SYSTEMTRAY_H
 #define SYSTEMTRAY_H
 
-#include <QObject>
+#include <QWidget>
 #include <QSystemTrayIcon>
-
-class SystemTray : public QSystemTrayIcon
+#include <QMenu>
+#include <QAction>
+#include <QCursor>
+class SystemTray : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SystemTray(QObject *parent = nullptr);
-    //重写构造函数传入一堆参数
-    SystemTray(QIcon s,QString title,QString text,QObject *parent = nullptr);
+    explicit SystemTray(QWidget *parent = nullptr);
+    SystemTray(QIcon icon,QString title,QString text,QWidget *parent);
+    QMenu *menu = nullptr;
+    QAction open_ui;
+    QAction quit_app;
+    QSystemTrayIcon * sti = nullptr;
 
+    void addmyaction(QAction *act,QString title);
+    void activeTray(QSystemTrayIcon::ActivationReason reason);
+    void init_SystemTray();
+    void showMenu();
+    ~SystemTray();
 signals:
+    void QUIT();
 
 };
 

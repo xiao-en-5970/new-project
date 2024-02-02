@@ -11,6 +11,9 @@ MainWidget::MainWidget(QWidget *parent)
     init_widget();
     init_label();
     init_sti();
+    connect(this->sti,&SystemTray::QUIT,this,[=](){
+        this->close();
+    });
 }
 
 void MainWidget::init_var()
@@ -21,15 +24,15 @@ void MainWidget::init_var()
 
 void MainWidget::init_widget()
 {
+
     //调整宽高
     this->resize(setting->mainwidget_width,setting->mainwidget_height);
-    //调整无边框和透明以及始终前置
-    this->setWindowFlags(Qt::FramelessWindowHint | windowFlags());
-    this->setWindowFlags(this->windowFlags() | Qt::WindowStaysOnTopHint);
-    setAutoFillBackground(true);
-    setAttribute(Qt::WA_TranslucentBackground, true);
+    //调整无边框和透明以及始终前置,还有任务栏隐藏
+    this->setAttribute(Qt::WA_TranslucentBackground, true);
+    this->setWindowFlags(Qt::FramelessWindowHint|Qt::WindowStaysOnTopHint|Qt::Popup|Qt::Tool);
     //设置logo
     this->setWindowIcon(this->logo_icon);
+
 }
 void MainWidget::del_var()
 {
@@ -48,7 +51,10 @@ void MainWidget::del_var()
         delete this->sti;
         this->sti = nullptr;
     }
+
 }
+
+
 MainWidget::~MainWidget()
 {
     del_var();

@@ -11,6 +11,8 @@
 #include <QIcon>
 #include <QPixmap>
 #include "systemtray.h"
+#include <QRect>
+#include <parentwidget.h>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWidget; }
 QT_END_NAMESPACE
@@ -43,6 +45,8 @@ private:
     void set_pix(QString);
     //初始化托盘图标
     void init_sti();
+    //初始化托盘菜单窗口
+    void init_menuwig();
 //私有变量
     //setting属性
     Setting * setting = nullptr;
@@ -58,6 +62,8 @@ private:
     QPixmap cur_pix;
     //logo图片加载
     QIcon logo_icon;
+    //设置一个父窗口
+    ParentWidget * p_wig = nullptr;
     //UI
     Ui::MainWidget *ui;
 };

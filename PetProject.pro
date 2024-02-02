@@ -12,12 +12,14 @@ SOURCES += \
     action.cpp \
     main.cpp \
     mainwidget.cpp \
+    parentwidget.cpp \
     setting.cpp \
     systemtray.cpp
 
 HEADERS += \
     action.h \
     mainwidget.h \
+    parentwidget.h \
     setting.h \
     systemtray.h
 
